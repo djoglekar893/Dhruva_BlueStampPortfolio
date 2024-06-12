@@ -2,7 +2,8 @@
 
 This project involves creating a ball tracking robot utilizing computer vision techniques with the popular Python library, OpenCV. The project integrates various components, each contributing unique functionality to the final product. The robot is equipped with a Raspberry Pi minicomputer, a PiCamera for color detection, DC motors for wheel control, and ultrasonic sensors to minimize the risk of collisions.
 
-<!---You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions:
+<!---
+You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions:
 ```HTML 
 <!--- This is an HTML comment in Markdown -->
 <!--- Anything between these symbols will not render on the published site -->
@@ -71,7 +72,8 @@ void loop() {
   // put your main code here, to run repeatedly:
 
 }
-```
+
+-->
 
 # Bill of Materials
 Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
