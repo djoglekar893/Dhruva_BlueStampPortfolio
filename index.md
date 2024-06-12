@@ -6,8 +6,8 @@ This project involves creating a ball tracking robot utilizing computer vision t
 You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions:
 
 <!--- This is an HTML comment in Markdown -->
-<!--- Anything between these symbols will not render on the published site -->
-
+<!--- Anything between these symbols will not render on the published site 
+-->
 
 | **Dhruva J** | **Cupertino High School** | **Computer Science** | **Incoming Junior** |
 |:--:|:--:|:--:|:--:|
