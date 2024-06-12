@@ -1,6 +1,4 @@
-# Ball Tracking Robot
-
-## Ball Tracking Robot with OpenCV: Computer Vision
+# Ball Tracking Robot with OpenCV: Computer Vision
 
 This project involves creating a ball tracking robot utilizing computer vision techniques with the popular Python library, OpenCV. The project integrates various components, each contributing unique functionality to the final product. The robot is equipped with a Raspberry Pi minicomputer, a PiCamera for color detection, DC motors for wheel control, and ultrasonic sensors to minimize the risk of collisions.
 
