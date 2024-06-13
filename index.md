@@ -43,6 +43,7 @@ For your final milestone, explain the outcome of your project. Key details to in
 # Second Milestone
 
 ## Summary
+My goal for this milestone was for the robot's camera to detect the red ball. This would be possible by taking a image from the robots camera and finding the largest area of red pixels. This was done by using OpenCV which is a python library. My code would see if there was a area of red pixels which was greater than 400. If so, then that would be the ball. If not, then that would not be the ball. The robot cannot be able to detect the ball if it was too far away since the area of red pixels would be less than 400.
 ### Components Used
 ## Challenges
 ## What's Next?
