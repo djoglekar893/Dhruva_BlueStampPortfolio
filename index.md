@@ -45,6 +45,7 @@ For your final milestone, explain the outcome of your project. Key details to in
 ### Components Used
 ## Challenges
 ## What's Next?
+
 <!---
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
@@ -56,12 +57,14 @@ For your second milestone, explain what you've worked on since your previous mil
 - Previous challenges you faced that you overcame
 - What needs to be completed before your final milestone 
 -->
+
 # First Milestone
 
 ## Summary
 ### Components Used
 ## Challenges
 ## What's Next?
+
 <!---
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
@@ -73,6 +76,7 @@ For your first milestone, describe what your project is and how you plan to buil
 - Challenges you're facing and solving in your future milestones
 - What your plan is to complete your project
 -->
+
 
 # Schematics 
 <!---
