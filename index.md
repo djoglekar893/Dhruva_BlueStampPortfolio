@@ -24,9 +24,6 @@ You should comment out all portions of your portfolio that you have not complete
 
 ## Summary
 My final milestone is to make the robot turn after detecting the red ball, then move to the red ball. This would be possible by sending the angle needed to turn the robot from the the Raspberry Pi to the motors. After that, the robot would move forward until the ball is directly in front of it.
-### Components Used
-## Challenges
-## What's Next?
 
 <!---
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
@@ -44,9 +41,7 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 ## Summary
 My goal for this milestone was for the robot's camera to detect the red ball. This would be possible by taking a image from the robots camera and finding the largest area of red pixels. This was done by using OpenCV which is a python library. My code would see if there was a area of red pixels which was greater than 400. If so, then that would be the ball. If not, then that would not be the ball. The robot cannot be able to detect the ball if it was too far away since the area of red pixels would be less than 400.
-### Components Used
-## Challenges
-## What's Next?
+
 
 <!---
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
@@ -64,9 +59,7 @@ For your second milestone, explain what you've worked on since your previous mil
 
 ## Summary
 My first milestone is to construct the overall build for the robot. I constructed the chassy and attached the battery pack, Raspberry pi, camera, breadboard, and infared sensors to it. I had to wire electrical components together for exampel, wiring the breadboard to the raspberry pi and connecting the h-bridge to the motors. I also had to solder some wires together because the slot would only allow one wire and I had to connect two wires.
-### Components Used
-## Challenges
-## What's Next?
+
 
 <!---
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
