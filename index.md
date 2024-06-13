@@ -153,4 +153,4 @@ For my starter project, I created a functional calculator. The calculator was ab
 - 17x Button Caps
 
 ## Challenges Faced
-
+Some challenges I faced, include adding the case to my calculator. The screws were pretty hard to tighten and my case was loose which forced me to restart making it. Another challenge I faced was that my resistor went too tall so I had to bend it in order to make it fit in the case. I also had some challenges with soldering because the pins were too close to eachother and one wrong move would make it not work.
