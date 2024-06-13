@@ -1,6 +1,6 @@
 # Ball Tracking Robot with OpenCV: Computer Vision
 
-This project involves creating a ball tracking robot utilizing computer vision techniques with the popular Python library, OpenCV. The project integrates various components, each contributing unique functionality to the final product. The robot is equipped with a Raspberry Pi minicomputer, a PiCamera for color detection, DC motors for wheel control, and ultrasonic sensors to minimize the risk of collisions.
+This project is about making a ball-tracking robot using OpenCV, a Python library for computer vision. The robot has a Raspberry Pi computer, a PiCamera for detecting the ball, DC motors for moving the wheels, and ultrasonic sensors to avoid collisions. Each part works together to create a robot that can follow a ball.
 
 <!---
 You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions:
@@ -16,6 +16,7 @@ You should comment out all portions of your portfolio that you have not complete
 **Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
 
 ![Headstone Image](logo.svg)
+
 <!---
 # Final Milestone
 
@@ -55,6 +56,7 @@ For your first milestone, describe what your project is and how you plan to buil
 - Challenges you're facing and solving in your future milestones
 - What your plan is to complete your project
 -->
+
 # Schematics 
 Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
 
@@ -86,15 +88,6 @@ Here's where you'll put images of your schematics. [Tinkercad](https://www.tinke
         vid.release()
         cv2.destroyAllWindows()
 ```
-
-<!---
-# Bill of Materials
-| **Part** | **Note** | **Price** | **Link** |
-|:--:|:--:|:--:|:--:|
-| Raspberry Pi | | Building the Raspberry Pi | $99.95 | <a href="https://www.canakit.com/raspberry-pi-4-starter-kit.html"> Link </a> |
-| Emonzy Chassis | The base for the vehicle | $12.99 | <a href="https://www.amazon.com"> Link </a> |
-| Power Bank BI-B41 | Powering the Raspberry Pi | $19.99 | <a href="https://iniushop.com"> Link </a> |
--->
 
 # Bill of Materials
 
