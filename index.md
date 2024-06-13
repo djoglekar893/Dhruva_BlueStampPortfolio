@@ -142,3 +142,11 @@ To watch the BSE tutorial on how to create a portfolio, click here.
 
 ## Summary
 For my starter project, I created a functional calculator. The calculator was able to perform simple action such as adding, subtracting, multiplying, and dividing two numbers. It could also deal with decimals and scientific notification if a number was too large or small to fit in its 6 digit screen. When you press the buttons on the calculator, it sends a packet to the main computer of the calculator which would perform the operation. Finally, the computer will print the final answer on its six digit screen.
+
+## Components Used
+*1x Circular Battery
+*1x Circuit Board 
+*1x Usb Socket
+*1x Resistor
+*17x Push Down Buttons 
+*17x Button Caps
