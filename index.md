@@ -87,13 +87,22 @@ Here's where you'll put images of your schematics. [Tinkercad](https://www.tinke
         cv2.destroyAllWindows()
 ```
 
-
+<!---
 # Bill of Materials
 | **Part** | **Note** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|
 | Raspberry Pi | | Building the Raspberry Pi | $99.95 | <a href="https://www.canakit.com/raspberry-pi-4-starter-kit.html"> Link </a> |
 | Emonzy Chassis | The base for the vehicle | $12.99 | <a href="https://www.amazon.com"> Link </a> |
 | Power Bank BI-B41 | Powering the Raspberry Pi | $19.99 | <a href="https://iniushop.com"> Link </a> |
+-->
+
+# Bill of Materials
+
+| **Part**            | **Note**                   | **Price** | **Link**                                                                                                                                    |
+|:-------------------:|:--------------------------:|:---------:|:------------------------------------------------------------------------------------------------------------------------------------------:|
+| Raspberry Pi        | Building the Raspberry Pi  | $99.95    | [Link](https://www.canakit.com/raspberry-pi-4-starter-kit.html)                                                                            |
+| Emonzy Chassis      | The base for the vehicle   | $12.99    | [Link](https://www.amazon.com/Smart-Chassis-Motors-Encoder-Battery/dp/B01LXY7CM3/ref=asc_df_B01LXY7CM3/?tag=hyprod-20&linkCode=df0&hvadid=693448563566&hvpos=&hvnetw=g&hvrand=13188769298549160467&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9032183&hvtargid=pla-584495246069&psc=1&mcid=3f54405bf4d93ae384d78ef10f75b962&gad_source=1) |
+| Power Bank BI-B41   | Powering the Raspberry Pi  | $19.99    | [Link](https://iniushop.com/products/iniu-b41-portable-charger-15w-fast-charging-slimmest-10000mah?variant=43637931147442&currency=USD&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gad_source=1&gclid=CjwKCAjwjqWzBhAqEiwAQmtgT1XwMCJbZkhMTRSuZs4hHaQyGw7Jys7nqwnwtI10GClJyrz8Do8syxoCC0AQAvD_BwE) |
 
 <!---
 # Other Resources/Examples
