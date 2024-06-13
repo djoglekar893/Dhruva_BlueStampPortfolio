@@ -63,6 +63,7 @@ For your second milestone, explain what you've worked on since your previous mil
 # First Milestone
 
 ## Summary
+My first milestone is to construct the overall build for the robot. I constructed the chassy and attached the battery pack, Raspberry pi, camera, breadboard, and infared sensors to it. I had to wire electrical components together for exampel, wiring the breadboard to the raspberry pi and connecting the h-bridge to the motors. I also had to solder some wires together because the slot would only allow one wire and I had to connect two wires.
 ### Components Used
 ## Challenges
 ## What's Next?
