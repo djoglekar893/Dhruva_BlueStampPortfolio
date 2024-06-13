@@ -23,6 +23,7 @@ You should comment out all portions of your portfolio that you have not complete
 # Final Milestone
 
 ## Summary
+My final milestone is to make the robot turn after detecting the red ball. This would be possible by sending the angle needed to turn the robot from the the Raspberry Pi to the motors. After that, the robot would move forward until the ball is directly in front of it.
 ### Components Used
 ## Challenges
 ## What's Next?
