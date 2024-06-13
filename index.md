@@ -12,10 +12,11 @@ You should comment out all portions of your portfolio that you have not complete
 |**Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
 | Dhruva J. | Cupertino HS | Computer Science | Incoming Junior |
-
+<!---
 **Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
 
 ![Headstone Image](logo.svg)
+-->
 
 <!---
 # Final Milestone
@@ -58,7 +59,12 @@ For your first milestone, describe what your project is and how you plan to buil
 -->
 
 # Schematics 
+<!---
 Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
+
+-->
+![image](https://github.com/djoglekar893/Dhruva_BlueStampPortfolio/assets/155853576/3f27e7b8-454a-40a6-b50a-874711f114eb)
+
 
 # Code
 
