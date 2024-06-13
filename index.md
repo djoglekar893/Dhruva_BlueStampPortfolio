@@ -88,27 +88,7 @@ Here's where you'll put images of your schematics. [Tinkercad](https://www.tinke
 ```python
  import cv2
         
-        vid = cv2.VideoCapture(0)
-        
-        while(True):
-            ret, frame = vid.read()
-            height = frame.shape[0]
-            width = frame.shape[1]
-            
-            if ret:
-                
-                # frame_r: resized tensor H/4,W/4, 3
-                frame_r = cv2.resize(frame, (width//4,height//4))
-                
-                #swap channels (BGR)
-                cv2.imshow('frame', frame_r[:,:,[2,1,0]])
-                #cv2.imshow('frame', frame_r)
-        
-            if (cv2.waitKey(1) & 0xFF == ord('q')):
-                break
-                
-        vid.release()
-        cv2.destroyAllWindows()
+      
 ```
 
 # Bill of Materials
