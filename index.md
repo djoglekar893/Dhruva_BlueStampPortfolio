@@ -18,7 +18,7 @@ You should comment out all portions of your portfolio that you have not complete
 
 ![Headstone Image](logo.svg)
 -->
-![Headshot Image](TBpoXFa - Imgur.png)
+![Headshot Image](HeadshotImage.png)
 
 
 
