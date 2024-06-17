@@ -60,7 +60,21 @@ For your second milestone, explain what you've worked on since your previous mil
 ## Summary
 My first milestone is to construct the overall build for the robot. I constructed the chassy and attached the battery pack, Raspberry pi, camera, breadboard, and infared sensors to it. I had to wire electrical components together for exampel, wiring the breadboard to the raspberry pi and connecting the h-bridge to the motors. I also had to solder some wires together because the slot would only allow one wire and I had to connect two wires.
 
+## Components Used
+- 1x Raspberry Pi Minicomputer
+- 1x H-Bridge
+- 1x Robot Chassy
+- 3x Resistor (1k Ohm)
+- 2x DC Motors 
+- 1x Battery Pack
+- 1x Breadboard
+- 3x Ultrasonic Sensor
+- 1x PiCamera
+- 20x Wires
+- 2x Wheels
 
+## Challenges Faced
+One of the main challenges that I faced when building the overall build was managing my wires. Since I was using so many wires, there would be a lot of unorganized messy wires everywhere. I decided to use zipties to group wires that led to the same place. I also realised that the Raspberry Pi's case had a little gap at the top, this was helpful because I could fit wires through there, making it easier to organize my wires. Another challenge that I faced was assembling the chassy. This was because the screws were very hard to install because there was not enough space which required me to take apart everything and re install them. I also had some challenges with installing the PiCamera because I forced it into the slot on the Pi's motherboard instead of lifiting the tabs and carefully placing them in resulting in the holder for the camera chipping away and causing a loose connection. I fixed this by placing the camera in correctly by lifiting the tabs, and it worked when I tested it again.   
 <!---
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
@@ -118,8 +132,8 @@ To watch the BSE tutorial on how to create a portfolio, click here.
 For my starter project, I created a functional calculator. The calculator was able to perform simple action such as adding, subtracting, multiplying, and dividing two numbers. It could also deal with decimals and scientific notification if a number was too large or small to fit in its 6 digit screen. When you press the buttons on the calculator, it sends a packet to the main computer of the calculator which would perform the operation. Finally, the computer will print the final answer on its six digit screen.
 
 ## Components Used
-- 1x Circular Battery
-- 1x Circuit Board 
+- 1x 
+- 1x Raspberry Pi minicomputer 
 - 1x Usb Socket
 - 1x Resistor
 - 17x Push Down Buttons 
