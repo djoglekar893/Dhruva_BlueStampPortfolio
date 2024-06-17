@@ -18,6 +18,8 @@ You should comment out all portions of your portfolio that you have not complete
 
 ![Headstone Image](logo.svg)
 -->
+![Headshot Image](https://drive.google.com/drive/u/0/folders/1bQe1yVljlmXGC6nRBit9WUu8aEBU5Ef8)
+
 
 
 # Final Milestone
