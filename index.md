@@ -59,6 +59,9 @@ For your second milestone, explain what you've worked on since your previous mil
 
 # First Milestone
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ORvmlinQZ_o?si=ZjFHiJ87LhuByG9k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
 ## Summary
 My first milestone is to construct the overall build for the robot. I constructed the chassy and attached the battery pack, Raspberry pi, camera, breadboard, and infared sensors to it. I had to wire electrical components together for exampel, wiring the breadboard to the raspberry pi and connecting the h-bridge to the motors. I also had to solder some wires together because the slot would only allow one wire and I had to connect two wires.
 
