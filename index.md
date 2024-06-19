@@ -40,6 +40,7 @@ For your final milestone, explain the outcome of your project. Key details to in
 -->
 
 # Second Milestone
+<iframe width="560" height="315" src="https://www.youtube.com/embed/f0EP63Y_y7k?si=bIUloyuRDF3nmtaL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Summary
 My goal for this milestone was for the robot's camera to detect the red ball. This would be possible by taking a image from the robots camera and finding the largest area of red pixels. This was done by using OpenCV which is a python library. My code would see if there was a area of red pixels which was greater than 400. If so, then that would be the ball. If not, then that would not be the ball. The robot cannot be able to detect the ball if it was too far away since the area of red pixels would be less than 400.
@@ -138,7 +139,6 @@ To watch the BSE tutorial on how to create a portfolio, click here.
 For my starter project, I created a functional calculator. The calculator was able to perform simple action such as adding, subtracting, multiplying, and dividing two numbers. It could also deal with decimals and scientific notification if a number was too large or small to fit in its 6 digit screen. When you press the buttons on the calculator, it sends a packet to the main computer of the calculator which would perform the operation. Finally, the computer will print the final answer on its six digit screen.
 
 ## Components Used
-- 1x 
 - 1x Raspberry Pi minicomputer 
 - 1x Usb Socket
 - 1x Resistor
