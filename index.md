@@ -127,6 +127,7 @@ Here's where you'll put images of your schematics. [Tinkercad](https://www.tinke
 |HDMI video cable type mini to type C | Connecting video card to computer | $7.82 | [Link](https://www.amazon.com/Amazon-Basics-Charging-Transfer-Gold-Plated/dp/B00NH11N5A/ref=asc_df_B00NH11N5A/?tag=hyprod-20&linkCode=df0&hvadid=693340910094&hvpos=&hvnetw=g&hvrand=583614035743564262&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9032183&hvtargid=pla-330035844136&mcid=d3790c59b9dd342995b6a48895a3976c&gad_source=1&th=1) |
 |Assorted jumper wires | Connecting from H-bridge/Breakboard to GPIO pins | $6.49 | [Link](https://www.amazon.com/EDGELEC-Breadboard-1pin-1pin-Connector-Multicolored/dp/B07GD2BWPY/ref=sr_1_3?crid=3C4YB6HOGZ8ZQ&keywords=female%2Bto%2Bfemale%2Bjumper&qid=1689894791&s=electronics&sprefix=female%2Bto%2Bfemale%2Bjumper%2Celectronics%2C161&sr=1-3&th=1) |
 
+Total Price: $188.52
 
 <!---
 # Other Resources/Examples
