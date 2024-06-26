@@ -121,6 +121,9 @@ Here's where you'll put images of your schematics. [Tinkercad](https://www.tinke
 | Power Bank BI-B41   | Powering the Raspberry Pi  | $19.99    | [Link](https://iniushop.com/products/iniu-b41-portable-charger-15w-fast-charging-slimmest-10000mah?variant=43637931147442&currency=USD&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gad_source=1&gclid=CjwKCAjwjqWzBhAqEiwAQmtgT1XwMCJbZkhMTRSuZs4hHaQyGw7Jys7nqwnwtI10GClJyrz8Do8syxoCC0AQAvD_BwE) |
 | Breadboard | Connecting the electrical circuits | $2.33 | [Link](https://www.amazon.com/ELEGOO-tie-points-breadboard-Arduino-Jumper/dp/B01EV640I6/ref=sr_1_3?crid=1B2OOFCZPLH09&dib=eyJ2IjoiMSJ9.c3AY57g3DJYx1mV7GL3Z2BI7VibPC8inlAG7IgmFmBylQ1IYt_Q8-A2F8NYW2VoP8zxEXvFyPX4v8cE_nDBNctifJt4txhQ_3ee7GJ_JPAfhix9ISztD_Flaob8teY24RDocApew_6ggjXw-6TapCa6RKIFjgk2YDJCVZC_oqui-dnrQ7bmOb-QMemrgLq9K-NNIbeOwuG3U1KKIKwpq0_8Ng45zZBz_hMuiasUIUgI.diGqVHf1K4w9nydJ8Bc3Dfvz_GEmWAN_Yd6s-8IDG2o&dib_tag=se&keywords=half+breadboard&qid=1718304133&sprefix=half+breadboard%2Caps%2C126&sr=8-3) |
 | Ultrasonic Sensor x3 | Measuring the distance to the ball | $4.50 | [Link](https://www.sparkfun.com/products/15569) |
+| PiCamera | Identifying the ball | $17.98 | [Link](https://www.amazon.com/Raspberry-Pi-Camera-Module-Megapixel/dp/B01ER2SKFS) |
+| H-Bridge | Sending commands to motors| $6.49 | [Link](https://www.amazon.com/Diymall-Module-Stepper-Modules-Arduino/dp/B00NJOTBOK/ref=asc_df_B00NJOTBOK/?tag=hyprod-20&linkCode=df0&hvadid=693611984328&hvpos=&hvnetw=g&hvrand=12308173357640503104&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9032183&hvtargid=pla-2062985254553&psc=1&mcid=170f1bbf2f773d04a1c0254ec6413a12&gad_source=1) |
+
 
 <!---
 # Other Resources/Examples
