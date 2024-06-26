@@ -73,7 +73,7 @@ My first milestone is to construct the overall build for the robot. I constructe
 ## Components Used
 - 1x Raspberry Pi Minicomputer
 - 1x H-Bridge
-- 1x Robot Chassy
+- 1x Robot Chassis
 - 3x Resistor (1k Ohm)
 - 2x DC Motors 
 - 1x Battery Pack
