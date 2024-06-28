@@ -30,18 +30,6 @@ In this milestone I faced many challenges, My first challenge was with making th
 ## Next Steps
 Since I faced so many challenges with my third milestone, I spent around 4 days trying to complete them, this left me with not a lot of time left for my modification, however I wanted to do one, so I decided to do something that wouldnt take too long. I decided on 3d printing a top part for my breadboard because a lot of the wires were sticking out and I wanted to make my project look more asthetically pleasing instead of a huge electircal circuit. I will be using tinker CAD which is a online 3D designing software to design a case for my breadboard.
 
-<!---
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-For your final milestone, explain the outcome of your project. Key details to include are:
-- What you've accomplished since your previous milestone
-- What your biggest challenges and triumphs were at BSE
-- A summary of key topics you learned about
-- What you hope to learn in the future after everything you've learned at BSE
--->
-
 # Second Milestone
 <iframe width="560" height="315" src="https://www.youtube.com/embed/f0EP63Y_y7k?si=bIUloyuRDF3nmtaL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -54,39 +42,12 @@ I faced many challenges during this milestone. My first challenge was with Raspb
 ## Next Steps
 My first step is to test that all my sensors work. This is crucial because if anything doesnt work then I have to diagnose the problem as fast as possible. After that step, I want to fully complete the project by utilizing the motorsand ultrasonic sensors to create a fully moving robot! I have to download a software called RealVNC which acts like a remote PC so I will not have to connect my Pi via HDMI. This is useful mainly for moving robots because it is hard to move a robot which has a cable connected to the computer. RealVNC is also useful because you dont have to use a external mouse and keyboard to control the Pi. This is very helpful because now my PC can be portable so I can easily test the robot on the ground wirelessly.  
 
-
-<!---
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-For your second milestone, explain what you've worked on since your previous milestone. You can highlight:
-- Technical details of what you've accomplished and how they contribute to the final goal
-- What has been surprising about the project so far
-- Previous challenges you faced that you overcame
-- What needs to be completed before your final milestone 
--->
-
 # First Milestone
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ORvmlinQZ_o?si=ZjFHiJ87LhuByG9k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-
 ## Summary
 My first milestone is to construct the overall build for the robot. I constructed the chassy and attached the battery pack, Raspberry pi, camera, breadboard, and infared sensors to it. I had to wire electrical components together for example, wiring the breadboard to the raspberry pi and connecting the h-bridge to the motors. I also had to solder some wires together because the slot would only allow one wire and I had to connect two wires. The raspberry pi's GPIO pins were connected to the H-bridge's in slots and where connected to the motors via the H-bridge's out slots. I also had to add three ultrasonic sensors to the front of my robot, this was for sensing when the ball came close. Each of the ultrasonic sensors had 4 pins to them: power, ground, trig, and echo. Power provides power to the sensor while the ground pin completes the circuit by preventing a short circut and completing the circle. Echo and Trig pins are unique to the ultrasonic sensor, the trig pin is used the trigger the ultrasonic sound pulses while the echo pin is used to produce a pulse when the signal is recieved. All 4 of these are necissary for the sensor to work. I finally utilized zipties to group all my wires togeather, this was benficial for both orginization and the overall asthetic look.
-
-## Components Used
-- 1x Raspberry Pi Minicomputer
-- 1x H-Bridge
-- 1x Robot Chassis
-- 3x Resistor (1k Ohm)
-- 2x DC Motors 
-- 1x Battery Pack
-- 1x Breadboard
-- 3x Ultrasonic Sensor
-- 1x PiCamera
-- 20x Wires
-- 2x Wheels
 
 ## Challenges Faced
 One of the main challenges that I faced when building the overall build was managing my wires. Since I was using so many wires, there would be a lot of unorganized messy wires everywhere. I decided to use zipties to group wires that led to the same place. I also realised that the Raspberry Pi's case had a little gap at the top, this was helpful because I could fit wires through there, making it easier to organize my wires. Another challenge that I faced was assembling the chassy. This was because the screws were very hard to install because there was not enough space which required me to take apart everything and re install them. I also had some challenges with installing the PiCamera because I forced it into the slot on the Pi's motherboard instead of lifiting the tabs and carefully placing them in resulting in the holder for the camera chipping away and causing a loose connection. I fixed this by placing the camera in correctly by lifiting the tabs, and it worked when I tested it again. 
@@ -94,26 +55,9 @@ One of the main challenges that I faced when building the overall build was mana
 ## Next Steps 
 My next steps will be to configure my Raspberry Pi camera by installing the necissary libraries and to test it in the terminal using the `libcamera-hello` command. After that I will make sure that it works and can turn on via python code. Then I will apply a range of HSV values so that the camera detects the ball by seeing whichever pixels are within that range. I will also make this easier for a human to comprehend by adding a circle around the ball and using masks to highlight the outline of the ball in white on a black backround. 
 
-<!---
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CaCazFBhYKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-For your first milestone, describe what your project is and how you plan to build it. You can include:
-- An explanation about the different components of your project and how they will all integrate together
-- Technical progress you've made so far
-- Challenges you're facing and solving in your future milestones
-- What your plan is to complete your project
--->
-
-
 # Schematics 
-<!---
-Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
 
--->
 ![image](https://github.com/djoglekar893/Dhruva_BlueStampPortfolio/assets/155853576/3f27e7b8-454a-40a6-b50a-874711f114eb)
-
 
 # Code
 
