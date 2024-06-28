@@ -12,6 +12,7 @@ This project is about making a ball-tracking robot using OpenCV, a Python librar
 ![Headstone Image](logo.svg)
 -->
 ![Headstone Image](HSP)
+![Top View](IMG_1617.png)
 
 # Final Milestone - Modification 
 
