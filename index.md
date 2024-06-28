@@ -2,13 +2,6 @@
 
 This project is about making a ball-tracking robot using OpenCV, a Python library for computer vision. The robot has a Raspberry Pi computer, a PiCamera for detecting the ball, DC motors for moving the wheels, and ultrasonic sensors to avoid collisions. Each part works together to create a robot that can follow a ball.
 
-<!---
-You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions:
-
-<!--- This is an HTML comment in Markdown -->
-<!--- Anything between these symbols will not render on the published site 
--->
-
 |**Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
 | Dhruva J. | Cupertino HS | Computer Science | Incoming Junior |
@@ -19,11 +12,11 @@ You should comment out all portions of your portfolio that you have not complete
 ![Headstone Image](logo.svg)
 -->
 ![Headstone Image](HSP)
-![NewImagea](FRONTVIEW)
+
+# Final Milestone - Modification 
 
 
-
-# Final Milestone
+# Third Milestone
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7qswBFxCCM8?si=nluSNofW7a1fYUTV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Summary
