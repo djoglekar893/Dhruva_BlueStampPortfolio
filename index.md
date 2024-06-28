@@ -11,9 +11,10 @@ This project is about making a ball-tracking robot using OpenCV, a Python librar
 
 ![Headstone Image](logo.svg)
 -->
-<img src = "HSP.png" width = "450" height = "600">
-<img src = "IMG_1617.png" width = "150" height = "150">
-![Top View](IMG_1617.png)
+<img src = "HSP.png" width = "450" height = "600"> <img src = "IMG_1617.png" width = "150" height = "150">
+<img src = "IMG_1620.png" width = "150" height = "150">
+<img src = "IMG_1618.png" width = "150" height = "150">
+
 
 # Final Milestone - Modification 
 
