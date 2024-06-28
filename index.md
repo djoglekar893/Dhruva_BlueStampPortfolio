@@ -461,6 +461,9 @@ One of the best parts about Github is that you can view how other people set up 
 
 To watch the BSE tutorial on how to create a portfolio, click here.
 -->
+# Tutorial
+
+Hello Jack, it is 2 am and I am very tired, I will finish this tommorow Jun 28 2024
 
 # Starter Project - Calculator 
 
