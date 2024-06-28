@@ -215,109 +215,6 @@ finally:
     picamera.stop()      
 ```
 
-## Milestone 3
-```python
-import cv2
-from picamera2 import Picamera2
-import numpy as np
-import imutils
-import RPi.GPIO as GPIO
-import time
-
-GPIO.setwarnings(False)
-
-in1 = 2
-in2 = 3
-in3 = 17
-in4 = 27
-
-# To use Broadcom GPIO numbers instead of using board pi numbers
-GPIO.setmode(GPIO.BCM)
-
-# Setup the ouput pins
-GPIO.setup(in1,GPIO.OUT)
-GPIO.setup(in2,GPIO.OUT)
-GPIO.setup(in3,GPIO.OUT)
-GPIO.setup(in4,GPIO.OUT)
-
-GPIO.output(in1,GPIO.LOW)
-GPIO.output(in2,GPIO.LOW)
-GPIO.output(in3,GPIO.LOW)
-GPIO.output(in4,GPIO.LOW)
-
-
-# Create a Picamera2 instance
-picam2 = Picamera2()
-
-# Configure camera settings (adjust as needed)
-config = picam2.create_preview_configuration(main={"format": "XRGB8888", "size": (640, 480)})
-picam2.configure(config)
-picam2.start()
-
-
-while True:
-
-    # Capture a frame from the camera
-    frame = picam2.capture_array()
-    hsv_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-   
-   
-    # Preprocess the frame (if needed)
-    # For ball tracking, you may want to apply color filtering or other techniques
-
-    # Detect the ball (you'll need to adjust the color range)
-    lower_color = np.array([150, 140, 1])
-    upper_color = np.array([190, 255, 255])
-    mask = cv2.inRange(hsv_frame, lower_color, upper_color)
-    mask = cv2.erode(mask, None, iterations=2)
-    mask = cv2.dilate(mask, None, iterations=2)
-
-    # Find contours and track the ball
-    contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    if contours:
-        ball_center = max(contours, key=cv2.contourArea)
-        ((x, y), radius) = cv2.minEnclosingCircle(ball_center)
-        if radius > 10:
-            cv2.circle(frame, (int(x), int(y)), int(radius), (0, 255, 255), 2)
-   
-
-        if x > 430:   # turn right
-            GPIO.output(in1,GPIO.LOW)
-            GPIO.output(in2,GPIO.LOW)
-            GPIO.output(in3,GPIO.LOW)
-            GPIO.output(in4,GPIO.HIGH)
-               
-        if x < 210:   # turn left
-            GPIO.output(in1,GPIO.HIGH)
-            GPIO.output(in2,GPIO.LOW)
-            GPIO.output(in3,GPIO.LOW)
-            GPIO.output(in4,GPIO.LOW)
-           
-        if 210 < x < 430:     # move forward
-            GPIO.output(in1,GPIO.HIGH)
-            GPIO.output(in2,GPIO.LOW)
-            GPIO.output(in3,GPIO.LOW)
-            GPIO.output(in4,GPIO.HIGH)
-           
-        elif len(contours) == 0:
-            GPIO.output(in1,GPIO.LOW)
-            GPIO.output(in2,GPIO.LOW)
-            GPIO.output(in3,GPIO.LOW)
-            GPIO.output(in4,GPIO.HIGH)
-           
-           
-    # Display the frame
-    cv2.imshow("Ball Tracking", frame)
-    key = cv2.waitKey(1) & 0xFF
-    if key == ord("q"):
-        break
-
-# Clean up
-cv2.destroyAllWindows()
-picam2.stop()
-GPIO.cleanup()
-```
-
 ## Testing Camera 
 ```python
  import cv2
@@ -434,6 +331,330 @@ import RPi.GPIO as GPIO
         print ("object is at", distance, "cm from the ultrasonic sensor")
         
         GPIO.cleanup()
+```
+
+## Milestone 3 - Full Code
+```python
+import time
+import cv2
+import numpy as np
+from picamera2 import Picamera2
+import RPi.GPIO as GPIO
+
+sensor_proximity = 10  # Middle sensor
+rerouting_proximity = 17.5  # Side sensors only
+
+lower_range = 30
+upper_range = 290
+
+GPIO.setmode(GPIO.BCM)
+
+GPIO_TRIGGER1 = 11   # LEFT ultrasonic sensor
+GPIO_ECHO1 = 9
+
+GPIO_TRIGGER2 = 19   # FRONT ultrasonic sensor
+GPIO_ECHO2 = 26
+
+GPIO_TRIGGER3 = 16   # RIGHT ultrasonic sensor
+GPIO_ECHO3 = 20
+
+motor1B = 6  # LEFT motor
+motor1E = 5
+
+motor2B = 22  # RIGHT motor
+motor2E = 23
+
+en_a = 25  # Analog pins to control speed
+en_b = 24
+
+# Setup Ultrasonic sensors
+GPIO.setup(GPIO_TRIGGER1, GPIO.OUT)  # Trigger 1
+GPIO.setup(GPIO_ECHO1, GPIO.IN)  # Echo 1
+GPIO.setup(GPIO_TRIGGER2, GPIO.OUT)  # Trigger 2
+GPIO.setup(GPIO_ECHO2, GPIO.IN)  # Echo 2
+GPIO.setup(GPIO_TRIGGER3, GPIO.OUT)  # Trigger 3
+GPIO.setup(GPIO_ECHO3, GPIO.IN)  # Echo 3
+
+# Set Ultrasonic triggers (TRIG) to false (low):
+GPIO.output(GPIO_TRIGGER1, False)
+GPIO.output(GPIO_TRIGGER2, False)
+GPIO.output(GPIO_TRIGGER3, False)
+
+def sonar(GPIO_TRIGGER, GPIO_ECHO):
+    start = 0
+    stop = 0
+    GPIO.setup(GPIO_TRIGGER, GPIO.OUT)  # Trigger
+    GPIO.setup(GPIO_ECHO, GPIO.IN)      # Echo
+
+    GPIO.output(GPIO_TRIGGER, False)  # Set trigger to False (Low)
+    time.sleep(0.01)  # Allow module to settle
+
+    # Send 10us pulse to trigger
+    GPIO.output(GPIO_TRIGGER, True)
+    time.sleep(0.00001)
+    GPIO.output(GPIO_TRIGGER, False)
+
+    begin = time.time()
+    while GPIO.input(GPIO_ECHO) == 0 and time.time() < begin + 0.05:
+        start = time.time()
+
+    while GPIO.input(GPIO_ECHO) == 1 and time.time() < begin + 0.1:
+        stop = time.time()
+
+    elapsed = stop - start  # Calculate pulse length
+    distance = elapsed * 34300  # Distance pulse traveled in that time is time multiplied by the speed of sound (cm/s)
+    distance = distance / 2  # That was the distance there and back, so take half of the value
+
+    return distance  # Reset GPIO settings, return distance (in cm) appropriate to be used for robot movement
+
+# Set all motors to outputs
+GPIO.setup(motor1B, GPIO.OUT)
+GPIO.setup(motor1E, GPIO.OUT)
+GPIO.setup(motor2B, GPIO.OUT)
+GPIO.setup(motor2E, GPIO.OUT)
+
+GPIO.setup(en_a, GPIO.OUT)
+GPIO.setup(en_b, GPIO.OUT)
+
+power_a = GPIO.PWM(en_a, 100)
+power_a.start(70)
+
+power_b = GPIO.PWM(en_b, 100)
+power_b.start(70)
+
+def forward():
+    print("moving f")
+    GPIO.output(motor1B, GPIO.HIGH)
+    GPIO.output(motor1E, GPIO.LOW)
+    GPIO.output(motor2B, GPIO.HIGH)
+    GPIO.output(motor2E, GPIO.LOW)
+
+def reverse():
+    GPIO.output(motor1B, GPIO.HIGH)
+    GPIO.output(motor1E, GPIO.LOW)
+    GPIO.output(motor2B, GPIO.HIGH)
+    GPIO.output(motor2E, GPIO.LOW)
+
+def leftturn():
+    GPIO.output(motor1B, GPIO.LOW)
+    GPIO.output(motor1E, GPIO.LOW)
+    GPIO.output(motor2B, GPIO.HIGH)
+    GPIO.output(motor2E, GPIO.LOW)
+    time.sleep(0.15)
+
+def rightturn():
+    GPIO.output(motor1B, GPIO.HIGH)
+    GPIO.output(motor2B, GPIO.LOW)
+    GPIO.output(motor2E, GPIO.LOW)
+    GPIO.output(motor1E, GPIO.LOW)
+    time.sleep(0.15)
+
+
+def stop():
+    GPIO.output(motor1B, GPIO.LOW)
+    GPIO.output(motor1E, GPIO.LOW)
+    GPIO.output(motor2B, GPIO.LOW)
+    GPIO.output(motor2E, GPIO.LOW)
+
+def sharp_left():
+    GPIO.output(motor1B, GPIO.HIGH)
+    GPIO.output(motor1E, GPIO.LOW)
+    GPIO.output(motor2B, GPIO.LOW)
+    GPIO.output(motor2E, GPIO.HIGH)
+
+def sharp_right():
+    GPIO.output(motor1B, GPIO.LOW)
+    GPIO.output(motor1E, GPIO.HIGH)
+    GPIO.output(motor2B, GPIO.HIGH)
+    GPIO.output(motor2E, GPIO.LOW)
+
+def back_left():
+    GPIO.output(motor1B, GPIO.HIGH)
+    GPIO.output(motor1E, GPIO.HIGH)
+    GPIO.output(motor2B, GPIO.HIGH)
+    GPIO.output(motor2E, GPIO.LOW)
+
+def back_right():
+    GPIO.output(motor1B, GPIO.HIGH)
+    GPIO.output(motor1E, GPIO.LOW)
+    GPIO.output(motor2B, GPIO.HIGH)
+    GPIO.output(motor2E, GPIO.HIGH)
+
+# Initialize Picamera2
+picamera = Picamera2()
+picamera.configure(picamera.create_preview_configuration(main={"size": (320, 240)}))
+picamera.start()
+
+# Color and font settings for drawing
+colour = (0, 255, 0)  # Green color for the square
+font = cv2.FONT_HERSHEY_SIMPLEX
+origin = (50, 50)
+scale = 1
+thickness = 2
+
+def apply_timestamp(frame):
+    timestamp = time.strftime("%Y-%m-%d %X")
+    cv2.putText(frame, timestamp, origin, font, scale, colour, thickness)
+
+def detect_red_ball(frame):
+    # Convert frame to HSV color space
+    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+
+    # Define lower and upper bounds for red color detection in HSV
+    lower_red = np.array([150, 140, 1])
+    upper_red = np.array([190, 255, 255])
+
+    # Threshold the HSV image to get only red colors
+    mask1 = cv2.inRange(hsv, lower_red, upper_red)
+   
+    mask = mask1
+
+    # Apply a series of erosions and dilations to reduce noise
+    mask = cv2.erode(mask, None, iterations=2)
+    mask = cv2.dilate(mask, None, iterations=2)
+
+    # Find contours in the mask
+    contours, _ = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    # Initialize center of the ball as None
+    center = None
+
+    # Proceed if at least one contour was found
+    if len(contours) > 0:
+        # Find the largest contour (assuming it's the ball)
+        c = max(contours, key=cv2.contourArea)
+
+        # Compute the minimum enclosing circle and centroid
+        ((x, y), radius) = cv2.minEnclosingCircle(c)
+        M = cv2.moments(c)
+        center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
+
+        # Only proceed if the radius meets a minimum size
+        if radius > 10:
+            # Draw the circle and centroid on the frame
+            cv2.circle(frame, (int(x), int(y)), int(radius), (255, 0, 0), 2)  # Red circle around the detected object
+            cv2.putText(frame, "Red Ball", (int(x - radius), int(y - radius)), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 0, 0), 2)
+            return frame, center, radius
+    return frame, None, 0
+
+def segment_colour(frame):  # returns only the red colors in the frame
+    hsv_roi = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+   
+    mask_1 = cv2.inRange(hsv_roi, np.array([150, 140, 1]), np.array([190, 255, 255]))  # Experimentally set BGR values appropriate for desired color
+
+    mask = mask_1
+    kern_dilate = np.ones((8, 8), np.uint8)
+    kern_erode = np.ones((3, 3), np.uint8)
+    mask = cv2.erode(mask, kern_erode)  # Eroding
+    mask = cv2.dilate(mask, kern_dilate)  # Dilating
+   
+    (h, w) = mask.shape
+   
+    cv2.imshow('mask', mask)  # Shows mask (B&W screen with identified red pixels)
+   
+    return mask
+
+def no_obstacle(distanceL, distanceC, distanceR):
+    if distanceL > sensor_proximity and distanceC > sensor_proximity and distanceR > sensor_proximity:
+        return True
+    return False
+
+def find_blob(blob):
+    contours, _ = cv2.findContours(blob.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    largest_contour = 0
+    cont_index = -1
+
+    for idx, contour in enumerate(contours):
+        area = cv2.contourArea(contour)
+        if (area > largest_contour):
+            largest_contour = area
+            cont_index = idx
+
+    r = (0, 0, 2, 2)
+   
+    if len(contours) > 0:
+        r = cv2.boundingRect(contours[cont_index])  # Fitting rectangle to cover identified object
+   
+    return r, largest_contour
+
+def reroute(frame, mask):  # Avoids obstacles by changing direction (left / right)
+    (cy, cx) = mask.shape
+    r, area = find_blob(mask)
+    distL = sonar(GPIO_TRIGGER1, GPIO_ECHO1)
+    distC = sonar(GPIO_TRIGGER2, GPIO_ECHO2)
+    distR = sonar(GPIO_TRIGGER3, GPIO_ECHO3)
+   
+    if(area > 50):  # If a red object exists
+        if(r[0] > upper_range):  # Turn right if red object is closer to the right
+            print('RIGHT')
+            rightturn()
+            time.sleep(0.3)
+            stop()
+        elif(r[0] < lower_range):  # Turn left if red object is closer to the left
+            print('LEFT')
+            leftturn()
+            time.sleep(0.3)
+            stop()
+        else:  # If the red object is in the center
+            if distC > sensor_proximity:
+                print('FORWARD')
+                forward()
+                #time.sleep(0.15)
+                #stop()
+            else:  # If there is an obstacle in the center
+                if distL < rerouting_proximity and distR > rerouting_proximity:
+                    print('Obstacle detected! Rerouting... SHARP RIGHT')
+                    sharp_right()
+                    time.sleep(0.3)
+                    stop()
+                elif distR < rerouting_proximity and distL > rerouting_proximity:
+                    print('Obstacle detected! Rerouting... SHARP LEFT')
+                    sharp_left()
+                    time.sleep(0.3)
+                    stop()
+                else:
+                    print('Obstacle detected! Rerouting... REVERSE')
+                    reverse()
+                    time.sleep(0.3)
+                    stop()
+    else:
+        stop()
+        time.sleep(0.1)
+
+try:
+    while True:
+        frame = picamera.capture_array()
+                # Convert BGR to RGB
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        apply_timestamp(frame)
+        frame, center, radius = detect_red_ball(frame)
+        mask = segment_colour(frame)
+
+        # Display intermediate results for debugging
+        cv2.imshow("Frame", frame)
+        cv2.imshow("Mask", mask)
+
+        if center is not None:
+            print(f"Ball position: {center}, Radius: {radius}")
+            reroute(frame, mask)
+        else:
+            print("No ball detected")
+            sharp_left()
+            time.sleep(0.3)
+            stop()
+           
+
+        # Breaking out of the loop
+        if cv2.waitKey(1) & 0xFF == ord("q"):
+            break
+
+finally:
+    stop()
+    GPIO.cleanup()
+    cv2.destroyAllWindows()
+    picamera.stop()
+
+
 ```
 
 
